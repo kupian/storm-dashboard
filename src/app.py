@@ -2,10 +2,14 @@ from dash import Dash, html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
+import flask
+from utils.settings import APP_HOST,APP_PORT,APP_DEBUG
 
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv')
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = flask.Flask(__name__)
+app = Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTSTRAP])
+
 
 # Define the layout
 app.layout = dbc.Container([
@@ -35,6 +39,11 @@ app.layout = dbc.Container([
     # Add more rows as necessary for more video feeds
 ], fluid=True)
 
+server = app.server()
+
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(
+        host=APP_HOST,
+        port=APP_PORT,
+        debug=APP_DEBUG)
