@@ -39,7 +39,7 @@ app.layout = dbc.Container([
     # Add more rows as necessary for more video feeds
 ], fluid=True)
 
-server = app.server()
+server = app.server
 
 # Run the app
 if __name__ == '__main__':
