@@ -9,7 +9,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Define the layout
 app.layout = dbc.Container([
-    html.H1("Live Video Feed Dashboard", style={'text-align': 'center', 'margin-bottom': '20px'}),
+    html.H1("Hurricane Milton Dashboard", style={'text-align': 'center', 'margin-bottom': '20px'}),
     dbc.Row([
         dbc.Col(html.Div([
             html.Iframe(
@@ -28,7 +28,7 @@ app.layout = dbc.Container([
         dbc.Col(html.Div([
             html.Iframe(
                 src="https://www.meteoblue.com/en/weather/maps/widget/north-port_united-states_4166274?windAnimation=1&gust=1&satellite=1&cloudsAndPrecipitation=1&temperature=1&sunshine=1&extremeForecastIndex=1&geoloc=fixed&tempunit=C&windunit=km%252Fh&lengthunit=metric&zoom=5&autowidth=auto",
-                style={'width': '100%', 'height': '400px', 'border': 'none'},
+                style={'width': '100%', 'height': '300px', 'border': 'none'},
             )
         ]))
     ]),
